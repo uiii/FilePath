@@ -1,0 +1,29 @@
+#!/bin/bash
+
+script=$(readlink -f $0)
+run_dir=$(dirname $script)
+
+license="PT_PROJECT_LICENSE"
+
+year=${year:-`date +"%Y"`}
+author=${author:-"PT_PROJECT_AUTHOR"}
+project=${project:-"FilePath"}
+url=${url:-"PT_PROJECT_URL"}
+email=${email:-"PT_PROJECT_EMAIL"}
+
+vars="YEAR=${year},AUTHOR=${author},PROJECT_NAME=${project},PROJECT_URL=${url},EMAIL=${email}"
+
+prefix=${run_dir}/../
+
+dirs='
+    src 
+    include/FilePath
+'
+
+filter="*.{hpp,cpp,tpp}"
+
+for dir in $dirs
+do
+    path=${prefix}${dir}
+    codelicensator "$path" "$license" -f "$filter" -v "$vars" "$@"
+done
