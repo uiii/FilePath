@@ -1,0 +1,10 @@
+libdir=${INSTALL_PREFIX}/lib
+includedir=${INSTALL_PREFIX}/include
+
+Name: FilePath
+Description: File path manipulation library
+URL: https://github.com/uiii/FilePath.git
+Version: dev
+Requires: 
+Cflags: -I${includedir}
+Libs: -L${libdir} 

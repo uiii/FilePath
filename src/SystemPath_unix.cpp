@@ -29,7 +29,3 @@ std::string SystemPath::dataPath(const std::string& dataDir)
 
     return "/usr/share/" + appName_ + "/" + dataDir;
 }
-
-bool exists(const std::string& path)
-{
-}
